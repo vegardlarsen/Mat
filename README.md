@@ -1,6 +1,6 @@
 # Mat
 
-> In the picture framing industry, a *mat* (or mount in British English) is a thin, flat piece of paper-based material included within a picture frame, which serves as additional decoration and to perform several other, more practical functions, such as separating the art from the glass. — [Wikipedia](http://en.wikipedia.org/wiki/Mat_(picture_framing))
+> In the picture framing industry, a *mat* (or mount in British English) is a thin, flat piece of paper-based material included within a picture frame, which serves as additional decoration and to perform several other, more practical functions, such as separating the art from the glass. — [Wikipedia][wikipedia]
 
 *Mat* is a software suite designed to run digital picture frames.
 
@@ -47,3 +47,5 @@ These are ideas on sources I want to add, but haven't gotten around to:
 * **Security** Currently the service is completely open, meaning all images are available to anyone.
 * **Configurability** Configure things like time per image, ordering, and so on.
 * **Remote control** Let you skip an image, pause on an image, and so on.
+
+[wikipedia]: http://en.wikipedia.org/wiki/Mat_(picture_framing)
