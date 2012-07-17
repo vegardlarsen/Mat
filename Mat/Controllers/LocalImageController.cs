@@ -1,0 +1,38 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.Web;
+using System.Web.Mvc;
+using Mat.Common;
+
+namespace Mat.Controllers
+{
+    [DataContract]
+    public class ImageRequest
+    {
+        [DataMember(Name = "source")]
+        public Guid Source { get; set; }
+
+        [DataMember(Name = "path")]
+        public String Path { get; set; }
+    }
+
+    /// <summary>
+    /// Controller that serves up locally cached image requests over HTTP.
+    /// </summary>
+    public class LocalImageController : Controller
+    {
+        public ActionResult Index(ImageRequest request)
+        {
+            var source = SourceContainer.GetInstance().Sources.First(s => s.SourceSettings.Id == request.Source);
+            if (!(source is ISelfHostedSource)) throw new UnauthorizedAccessException();
+
+            var stream = (source as ISelfHostedSource).GetImageStream(request.Path);
+            Response.Cache.SetCacheability(HttpCacheability.Public);
+            Response.Cache.SetMaxAge(new TimeSpan(1, 0, 0, 0));
+            Response.Cache.SetSlidingExpiration(true);
+            return new FileStreamResult(stream, "image/jpeg");
+        }
+    }
+}
