@@ -3,6 +3,7 @@
         var container = $('.container'),
             hub = $.connection.imageHub;
         hub.newImage = function (image) {
+            $('.status').text('Loading image...');
             container.find('.previous').remove();
             var newImage = $('<img />').attr('src', image.url),
                 newSlide = $('<div />').addClass('slide next').append(newImage);
@@ -20,6 +21,8 @@
                 }
             });
         };
-        $.connection.hub.start();
+        $.connection.hub.start(function () {
+            $('.status').text('Awaiting instructions...');
+        });
     });
-}(jQuery));
+} (jQuery));
