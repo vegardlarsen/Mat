@@ -26,5 +26,11 @@ namespace Mat.Common
         /// </summary>
         /// <param name="image">The image to add.</param>
         void NewImage(Image image);
+
+        /// <summary>
+        /// Removes an image from the queue.
+        /// </summary>
+        /// <param name="image">The image to remove.</param>
+        void RemoveImage(Image image);
     }
 }

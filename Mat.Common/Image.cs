@@ -32,5 +32,15 @@ namespace Mat.Common
         /// Identifier for the source.
         /// </summary>
         public virtual Guid SourceId { get; private set; }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Image)
+            {
+                var image = obj as Image;
+                return image.Url == Url && image.SourceId == SourceId;
+            }
+            return base.Equals(obj);
+        }
     }
 }

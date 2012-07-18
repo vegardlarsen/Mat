@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Mat.Common;
+﻿using System.Collections.Generic;
 
 namespace Mat.Common
 {
@@ -14,6 +12,14 @@ namespace Mat.Common
             foreach (var queue in QueueManagerFactory.AllQueues)
             {
                 queue.NewImage(image);
+            }
+        }
+
+        protected void RemoveImage(Image image)
+        {
+            foreach (var queue in QueueManagerFactory.AllQueues)
+            {
+                queue.RemoveImage(image);
             }
         }
     }

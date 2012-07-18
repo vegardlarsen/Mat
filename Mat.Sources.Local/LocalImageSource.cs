@@ -18,8 +18,14 @@ namespace Mat.Sources.Local
 
         public LocalImageSource(ISourceSettings sourceSettings)
         {
-            _watcher.Created += (sender, args) => NewImage(new LocalImage(args.FullPath, SourceSettings.Id));
             SourceSettings = sourceSettings;
+            _watcher.Created += (sender, args) => NewImage(new LocalImage(args.FullPath, SourceSettings.Id));
+            _watcher.Deleted += (sender, args) => RemoveImage(new LocalImage(args.FullPath, SourceSettings.Id));
+            _watcher.Renamed += (sender, args) =>
+                                    {
+                                        RemoveImage(new LocalImage(args.OldFullPath, SourceSettings.Id));
+                                        NewImage(new LocalImage(args.FullPath, SourceSettings.Id));
+                                    };
         }
 
         public override IEnumerable<Image> Images

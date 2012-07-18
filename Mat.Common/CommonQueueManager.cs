@@ -59,5 +59,10 @@ namespace Mat.Common
         {
             _images.Insert(_position + 1, image);
         }
+
+        public void RemoveImage(Image image)
+        {
+            _images.Remove(image);
+        }
     }
 }
