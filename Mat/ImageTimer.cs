@@ -9,7 +9,6 @@ using SignalR;
 
 namespace Mat
 {
-    [assembly:WebActivator.PreApplicationStartMethod(typeof(ImageTimer), "Start")]
     public static class ImageTimer
     {
         private static readonly Timer _timer = new Timer(OnTimerElapsed);
@@ -17,7 +16,7 @@ namespace Mat
 
         public static void Start()
         {
-            _timer.Change(TimeSpan.Zero, TimeSpan.FromSeconds(5));
+            _timer.Change(TimeSpan.Zero, MatConfigurationSection.GetSettings().DefaultImageTime);
         }
 
         private static void OnTimerElapsed(object sender)

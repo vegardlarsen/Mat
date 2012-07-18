@@ -7,6 +7,7 @@ namespace Mat
     [ConfigurationCollection(typeof(ISourceSettings), CollectionType = ConfigurationElementCollectionType.BasicMap)]
     public class MatSourceCollection : ConfigurationElementCollection
     {
+        #region Collection items
         protected override bool IsElementName(string elementName)
         {
             return true;
@@ -47,5 +48,6 @@ namespace Mat
         {
             return false;
         }
+        #endregion
     }
 }
