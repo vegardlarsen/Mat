@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Web;
 
 namespace Mat.Common
 {
@@ -84,7 +85,11 @@ namespace Mat.Common
             var query = _factories.Values.Where(f => f.SettingsType == sourceSettings.GetType()).ToList();
             if (!query.Any()) throw new ArgumentException("Could not find image source that accepts this type");
 
-            return query.First().InstantiateImageSource(sourceSettings);
+            var factory = query.First();
+            var folder = Path.Combine(HttpContext.Current.Server.MapPath("~/App_Data"), factory.Alias);
+            Directory.CreateDirectory(folder);
+
+            return factory.InstantiateImageSource(sourceSettings, folder);
         }
     }
 }

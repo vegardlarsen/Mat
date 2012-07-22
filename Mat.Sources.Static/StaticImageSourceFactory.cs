@@ -13,7 +13,7 @@ namespace Mat.Sources.Static
             get { return "static"; }
         }
 
-        public IImageSource InstantiateImageSource(ISourceSettings sourceSettings)
+        public IImageSource InstantiateImageSource(ISourceSettings sourceSettings, string dataFolder)
         {
             return new StaticImageSource(sourceSettings as StaticImageSourceSettings);
         }

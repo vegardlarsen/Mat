@@ -34,13 +34,20 @@ If an image is added when the server is already running, it will be picked up an
 
 The static source allows you to link directly to individual images on an external server. You can add as many images as you like, but the URLs have to be encoded in the `Web.config` file, and to add more images you have to restart the server.
 
+### Dropbox
+
+Using Dropbox as a source is practical, as you can update your picture frame from anywhere. The Dropbox source is complex to configure, and it is easiest to use the configurator application, as you will need API credentials for using Dropbox.
+
+The Dropbox source can either run in a Dropbox app folder (which is a separate folder that only the app and you have access to), or through a path of your entire Dropbox (requires more privileges but allows accessing shared folders). 
+
+You can also have it get images directly from your Dropbox, or let the images be downloaded locally first.
+
 ### Planned sources
 
 These are ideas on sources I want to add, but haven't gotten around to:
 
 * **Flickr** -  Connect directly to a Flickr photostream of any sort.
 * **Remote** -  Allow a remote computer (running a separate program) to upload images to the server (think of it as a "remote local folder").
-* **Dropbox** - Connect to a Dropbox account via their API, and get images from a Dropbox app-folder.
 
 ## Other plans
 

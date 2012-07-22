@@ -18,7 +18,6 @@ local.properties
 .settings/
 .loadpath
 packages/
-_ReSharper.Mat/
 
 # External tool builders
 .externalToolBuilders/
@@ -165,3 +164,9 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
+
+###############
+## Mat-specific
+###############
+Mat/App_Data
+_ReSharper.Mat/

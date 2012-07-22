@@ -10,7 +10,7 @@ namespace Mat.Sources.Local
             get { return "local"; }
         }
 
-        public IImageSource InstantiateImageSource(ISourceSettings sourceSettings)
+        public IImageSource InstantiateImageSource(ISourceSettings sourceSettings, string dataFolder)
         {
             return new LocalImageSource(sourceSettings);
         }
