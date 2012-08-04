@@ -5,7 +5,7 @@ using Mat.Common;
 
 namespace Mat.Sources.Local
 {
-    public class LocalImageSourceSettings : AbstractSourceSettings
+    public class LocalMediaSourceSettings : AbstractSourceSettings
     {
         /// <summary>
         /// The path to load images from.

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Mat.Sources.Static
 {
-    public class StaticImageSourceLocation : ConfigurationElement
+    public class StaticMediaSourceLocation : ConfigurationElement
     {
         [ConfigurationProperty("path")]
         public String Path

@@ -10,28 +10,28 @@ using RestSharp;
 
 namespace Mat.Sources.Dropbox
 {
-    public class DropboxLocalImageSource : DropboxImageSource, ISelfHostedSource
+    public class DropboxLocalMediaSource : DropboxMediaSource, ISelfHostedSource
     {
         private readonly string _folder;
 
-        public DropboxLocalImageSource(DropboxImageSourceSettings dropboxImageSourceSettings, String folder) : base(dropboxImageSourceSettings)
+        public DropboxLocalMediaSource(DropboxMediaSourceSettings dropboxMediaSourceSettings, String folder) : base(dropboxMediaSourceSettings)
         {
             // store our files inside user-specific folder
             _folder = Path.Combine(folder, Settings.UserToken);
             Directory.CreateDirectory(_folder);
 
             // load images we already have downloaded
-            ((List<Image>)Images).AddRange(Directory.EnumerateFiles(_folder, "*.*",
+            ((List<Media>)Media).AddRange(Directory.EnumerateFiles(_folder, "*.*",
                                                       Settings.Recursive
                                                           ? SearchOption.AllDirectories
                                                           : SearchOption.TopDirectoryOnly)
                                  .Where(MediaFactory.IsPathMedia)
-                                 .Select(p => new LocalImage(p, Settings.Id)));
+                                 .Select(p => new LocalMedia(p, Settings.Id)));
         }
 
-        public override sealed IEnumerable<Image> Images
+        public override sealed IEnumerable<Media> Media
         {
-            get { return base.Images; }
+            get { return base.Media; }
         }
 
         private string LocalPathFromRemotePath(string remotePath)
@@ -87,9 +87,9 @@ namespace Mat.Sources.Dropbox
                          {
                              fs.Write(response.RawBytes, 0, response.RawBytes.Length);
                          }
-                         var image = new LocalImage(localPath, Settings.Id);
-                         NewImage(image);
-                         ((List<Image>)Images).Add(image);
+                         var media = new LocalMedia(localPath, Settings.Id);
+                         NewMedia(media);
+                         ((List<Media>)Media).Add(media);
                      },
                      exception => Debug.WriteLine(exception));
 

@@ -12,9 +12,9 @@ namespace Mat.Common
     /// the image based on the path.
     /// </summary>
     [DataContract]
-    public class LocalImage : Image
+    public class LocalMedia : Media
     {
-        public LocalImage(String path, Guid sourceId)
+        public LocalMedia(String path, Guid sourceId)
             : base (sourceId)
         {
             Path = path;
@@ -29,7 +29,7 @@ namespace Mat.Common
         {
             get
             {
-                return String.Format("/LocalImage/?source={0}&path={1}",
+                return String.Format("/LocalMedia/?source={0}&path={1}",
                                      HttpUtility.UrlEncode(SourceId.ToString()),
                                      HttpUtility.UrlEncode(Path));
             }

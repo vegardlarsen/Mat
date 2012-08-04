@@ -1,36 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Mat.Common
 {
     public interface IQueueManager
     {
-        IEnumerable<Image> Queue { get; }
-        IEnumerable<Image> History { get; }
+        IEnumerable<Media> Queue { get; }
+        IEnumerable<Media> History { get; }
         
         /// <summary>
         /// Jumps to the next image immediately.
         /// </summary>
-        Image Next();
+        Media Next();
         /// <summary>
         /// Jumps to the previous image immediately.
         /// </summary>
-        Image Previous();
+        Media Previous();
 
-        Image Current { get; }
+        Media Current { get; }
 
         /// <summary>
         /// Adds a new image to the queue.
         /// </summary>
-        /// <param name="image">The image to add.</param>
-        void NewImage(Image image);
+        /// <param name="media">The image to add.</param>
+        void NewMedia(Media media);
 
         /// <summary>
         /// Removes an image from the queue.
         /// </summary>
-        /// <param name="image">The image to remove.</param>
-        void RemoveImage(Image image);
+        /// <param name="media">The image to remove.</param>
+        void RemoveMedia(Media media);
     }
 }

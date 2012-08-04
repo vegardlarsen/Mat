@@ -5,9 +5,9 @@ using System.Text;
 
 namespace Mat.Common
 {
-    public static class ImageExtensions
+    public static class MediaExtensions
     {
-        public static int Ordering(this Image image)
+        public static int Ordering(this Media image)
         {
             var code =  image.SourceId.ToByteArray().Aggregate("", (current, b) => current + b);
             code += image.Url;

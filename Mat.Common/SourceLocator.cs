@@ -31,7 +31,7 @@ namespace Mat.Common
         /// <summary>
         /// The individual factories and their corresponding alias (for use in configuration files).
         /// </summary>
-        private readonly Dictionary<string, IImageSourceFactory> _factories = new Dictionary<string, IImageSourceFactory>();
+        private readonly Dictionary<string, IMediaSourceFactory> _factories = new Dictionary<string, IMediaSourceFactory>();
 
         public void ScanFolder(string folder)
         {
@@ -58,8 +58,8 @@ namespace Mat.Common
             {
                 var assembly = Assembly.LoadFrom(filename);
                 foreach (var factory in assembly.GetTypes()
-                    .Where(t => t.GetInterface("IImageSourceFactory") != null)
-                    .Select(t => (IImageSourceFactory)Activator.CreateInstance(t)))
+                    .Where(t => t.GetInterface("IMediaSourceFactory") != null)
+                    .Select(t => (IMediaSourceFactory)Activator.CreateInstance(t)))
                 {
                     _factories.Add(factory.Alias, factory);
                 }
@@ -70,7 +70,7 @@ namespace Mat.Common
         /// <summary>
         /// Returns all the factories indexed by their alias.
         /// </summary>
-        public IDictionary<string, IImageSourceFactory> Factories
+        public IDictionary<string, IMediaSourceFactory> Factories
         {
             get { return _factories; }
         }
@@ -80,7 +80,7 @@ namespace Mat.Common
         /// </summary>
         /// <param name="sourceSettings">The settings to load.</param>
         /// <returns>Instance of image source</returns>
-        public IImageSource InstantiateFromSettings(ISourceSettings sourceSettings)
+        public IMediaSource InstantiateFromSettings(ISourceSettings sourceSettings)
         {
             var query = _factories.Values.Where(f => f.SettingsType == sourceSettings.GetType()).ToList();
             if (!query.Any()) throw new ArgumentException("Could not find image source that accepts this type");
@@ -89,7 +89,7 @@ namespace Mat.Common
             var folder = Path.Combine(HttpContext.Current.Server.MapPath("~/App_Data"), factory.Alias);
             Directory.CreateDirectory(folder);
 
-            return factory.InstantiateImageSource(sourceSettings, folder);
+            return factory.InstantiateMediaSource(sourceSettings, folder);
         }
     }
 }

@@ -47,11 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DropboxImageSource.cs" />
-    <Compile Include="DropboxLocalImageSource.cs" />
-    <Compile Include="DropboxImageSourceSettings.cs" />
+    <Compile Include="DropboxMediaSource.cs" />
+    <Compile Include="DropboxLocalMediaSource.cs" />
+    <Compile Include="DropboxMediaSourceSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="DropboxImageSourceFactory.cs" />
+    <Compile Include="DropboxMediaSourceFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Mat.Common\Mat.Common.csproj">

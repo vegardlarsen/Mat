@@ -3,7 +3,7 @@ using Mat.Common;
 
 namespace Mat.Sources.Dropbox
 {
-    public class DropboxImageSourceSettings : AbstractSourceSettings
+    public class DropboxMediaSourceSettings : AbstractSourceSettings
     {
         [ConfigurationProperty("key", IsRequired = true)]
         public string ApplicationKey

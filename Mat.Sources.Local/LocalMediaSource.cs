@@ -6,7 +6,7 @@ using Mat.Common;
 
 namespace Mat.Sources.Local
 {
-    public class LocalImageSource : UpdatingImageSource, ISelfHostedSource
+    public class LocalMediaSource : UpdatingMediaSource, ISelfHostedSource
     {
         private readonly HashSet<String> _extensions = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
                                                   {
@@ -16,38 +16,38 @@ namespace Mat.Sources.Local
                                                   };
         private readonly FileSystemWatcher _watcher = new FileSystemWatcher();
 
-        public LocalImageSource(ISourceSettings sourceSettings)
+        public LocalMediaSource(ISourceSettings sourceSettings)
         {
             SourceSettings = sourceSettings;
-            _watcher.Created += (sender, args) => NewImage(new LocalImage(args.FullPath, SourceSettings.Id));
-            _watcher.Deleted += (sender, args) => RemoveImage(new LocalImage(args.FullPath, SourceSettings.Id));
+            _watcher.Created += (sender, args) => NewMedia(new LocalMedia(args.FullPath, SourceSettings.Id));
+            _watcher.Deleted += (sender, args) => RemoveMedia(new LocalMedia(args.FullPath, SourceSettings.Id));
             _watcher.Renamed += (sender, args) =>
                                     {
-                                        RemoveImage(new LocalImage(args.OldFullPath, SourceSettings.Id));
-                                        NewImage(new LocalImage(args.FullPath, SourceSettings.Id));
+                                        RemoveMedia(new LocalMedia(args.OldFullPath, SourceSettings.Id));
+                                        NewMedia(new LocalMedia(args.FullPath, SourceSettings.Id));
                                     };
         }
 
-        public override IEnumerable<Image> Images
+        public override IEnumerable<Media> Media
         {
             get
             {
-                if (_sourceSettings.Path == null) return new List<Image>();
+                if (_sourceSettings.Path == null) return new List<Media>();
                 return Directory.EnumerateFiles(_sourceSettings.Path, "*.*", SearchOption.AllDirectories)
                   .Where(path => _extensions.Contains(Path.GetExtension(path)))
-                  .Select(f => new LocalImage(f, SourceSettings.Id));
+                  .Select(f => new LocalMedia(f, SourceSettings.Id));
             }
         }
 
-        private LocalImageSourceSettings _sourceSettings;
+        private LocalMediaSourceSettings _sourceSettings;
         public override sealed ISourceSettings SourceSettings
         {
             get { return _sourceSettings; }
             set
             {
-                if (!(value is LocalImageSourceSettings)) return;
+                if (!(value is LocalMediaSourceSettings)) return;
                 
-                _sourceSettings = value as LocalImageSourceSettings;
+                _sourceSettings = value as LocalMediaSourceSettings;
 
                 _watcher.EnableRaisingEvents = false;
 

@@ -15,9 +15,9 @@ namespace Mat.Common
             _sources.AddRange(settings.Select(locator.InstantiateFromSettings));
         }
 
-        private readonly List<IImageSource> _sources = new List<IImageSource>();
+        private readonly List<IMediaSource> _sources = new List<IMediaSource>();
 
-        public IList<IImageSource> Sources
+        public IList<IMediaSource> Sources
         {
             get { return _sources; }
         }

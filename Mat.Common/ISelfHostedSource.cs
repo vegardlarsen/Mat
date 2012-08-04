@@ -8,7 +8,7 @@ namespace Mat.Common
     /// 
     /// The resource is then served by the local web server.
     /// </summary>
-    public interface ISelfHostedSource : IImageSource
+    public interface ISelfHostedSource : IMediaSource
     {
         /// <summary>
         /// Returns a stream to the requested resource.

@@ -45,20 +45,20 @@
   <ItemGroup>
     <Compile Include="AbstractSourceSettings.cs" />
     <Compile Include="CommonQueueManager.cs" />
-    <Compile Include="IImageSource.cs" />
-    <Compile Include="IImageSourceFactory.cs" />
-    <Compile Include="Image.cs" />
-    <Compile Include="ImageExtensions.cs" />
+    <Compile Include="IMediaSource.cs" />
+    <Compile Include="IMediaSourceFactory.cs" />
+    <Compile Include="MediaExtensions.cs" />
     <Compile Include="IQueueManager.cs" />
     <Compile Include="ISelfHostedSource.cs" />
     <Compile Include="ISourceSettings.cs" />
-    <Compile Include="LocalImage.cs" />
+    <Compile Include="LocalMedia.cs" />
     <Compile Include="MediaFactory.cs" />
+    <Compile Include="Media.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueueManagerFactory.cs" />
     <Compile Include="SourceContainer.cs" />
     <Compile Include="SourceLocator.cs" />
-    <Compile Include="UpdatingImageSource.cs" />
+    <Compile Include="UpdatingMediaSource.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

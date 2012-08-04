@@ -1,20 +1,21 @@
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Net.Mime;
 using DropNet;
 using DropNet.Models;
 using Mat.Common;
 
 namespace Mat.Sources.Dropbox
 {
-    public class DropboxImageSource : UpdatingImageSource
+    public class DropboxMediaSource : UpdatingMediaSource
     {
-        private readonly List<Image> _images;
-        protected DropboxImageSourceSettings Settings;
+        private readonly List<Media> _media;
+        protected DropboxMediaSourceSettings Settings;
         protected DropNetClient Client;
 
-        public DropboxImageSource(DropboxImageSourceSettings settings)
+        public DropboxMediaSource(DropboxMediaSourceSettings settings)
         {
-            _images = new List<Image>();
+            _media = new List<Media>();
             Settings = settings;
 
             Client = new DropNetClient(Settings.ApplicationKey, Settings.ApplicationSecret, Settings.UserToken,
@@ -58,24 +59,21 @@ namespace Mat.Sources.Dropbox
         {
             Client.GetMediaAsync(data.Path, response =>
                                                 {
-                                                    var image = new Image(Settings.Id)
-                                                    {
-                                                        Url = response.Url
-                                                    };
-                                                    NewImage(image);
-                                                    ((List<Image>)Images).Add(image);
+                                                    var media = MediaFactory.CreateFromUrl(Settings.Id, response.Url);
+                                                    NewMedia(media);
+                                                    ((List<Media>)Media).Add(media);
                                                 }, exception => Debug.WriteLine(exception));
         }
 
-        public override IEnumerable<Image> Images
+        public override IEnumerable<Media> Media
         {
-            get { return _images; }
+            get { return _media; }
         }
 
         public override ISourceSettings SourceSettings
         {
             get { return Settings; }
-            set { Settings = value as DropboxImageSourceSettings; }
+            set { Settings = value as DropboxMediaSourceSettings; }
         }
     }
 }

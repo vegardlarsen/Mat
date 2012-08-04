@@ -137,15 +137,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ImagesController.cs" />
-    <Compile Include="Controllers\LocalImageController.cs" />
+    <Compile Include="Controllers\LocalMediaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ConfigurationExtensions.cs" />
-    <Compile Include="Helpers\ImageHub.cs" />
+    <Compile Include="Helpers\MediaHub.cs" />
     <Compile Include="Helpers\LessBundle.cs" />
-    <Compile Include="ImageTimer.cs" />
+    <Compile Include="MediaTimer.cs" />
     <Compile Include="JobHost.cs" />
     <Compile Include="MatConfigurationSection.cs" />
     <Compile Include="MatSourceCollection.cs" />

@@ -9,7 +9,7 @@ using Mat.Common;
 namespace Mat.Controllers
 {
     [DataContract]
-    public class ImageRequest
+    public class MediaRequest
     {
         [DataMember(Name = "source")]
         public Guid Source { get; set; }
@@ -21,9 +21,9 @@ namespace Mat.Controllers
     /// <summary>
     /// Controller that serves up locally cached image requests over HTTP.
     /// </summary>
-    public class LocalImageController : Controller
+    public class LocalMediaController : Controller
     {
-        public ActionResult Index(ImageRequest request)
+        public ActionResult Index(MediaRequest request)
         {
             var source = SourceContainer.GetInstance().Sources.First(s => s.SourceSettings.Id == request.Source);
             if (!(source is ISelfHostedSource)) throw new UnauthorizedAccessException();
@@ -32,6 +32,7 @@ namespace Mat.Controllers
             Response.Cache.SetCacheability(HttpCacheability.Public);
             Response.Cache.SetMaxAge(new TimeSpan(1, 0, 0, 0));
             Response.Cache.SetSlidingExpiration(true);
+            // TODO: fix MIME type
             return new FileStreamResult(stream, "image/jpeg");
         }
     }

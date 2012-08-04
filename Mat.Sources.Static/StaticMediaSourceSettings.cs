@@ -7,10 +7,10 @@ using Mat.Common;
 
 namespace Mat.Sources.Static
 {
-    [ConfigurationCollection(typeof(StaticImageSourceLocation), CollectionType = ConfigurationElementCollectionType.BasicMap)]
-    public class StaticImageSourceSettings : ConfigurationElementCollection, ISourceSettings
+    [ConfigurationCollection(typeof(StaticMediaSourceLocation), CollectionType = ConfigurationElementCollectionType.BasicMap)]
+    public class StaticMediaSourceSettings : ConfigurationElementCollection, ISourceSettings
     {
-        public StaticImageSourceSettings()
+        public StaticMediaSourceSettings()
         {
             Id = Guid.NewGuid();
         }
@@ -23,7 +23,7 @@ namespace Mat.Sources.Static
 
         protected override ConfigurationElement CreateNewElement(string elementName)
         {
-            return new StaticImageSourceLocation();
+            return new StaticMediaSourceLocation();
         }
 
         protected override bool IsElementName(string elementName)

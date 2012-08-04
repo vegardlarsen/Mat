@@ -21,7 +21,6 @@ namespace Mat.Common
                                                                     "image/png"
                                                                 };
 
-
         /// <summary>
         /// Recognizes media based on a file path.
         /// </summary>
@@ -37,6 +36,11 @@ namespace Mat.Common
         public static bool IsMimeTypeMedia(string mimeType)
         {
             return _allowedMime.Contains(mimeType);
+        }
+
+        public static Media CreateFromUrl(Guid source, string url)
+        {
+            return new Media(source) {Url = url};
         }
     }
 }

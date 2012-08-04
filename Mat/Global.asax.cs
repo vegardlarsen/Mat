@@ -24,7 +24,7 @@ namespace Mat
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            ImageTimer.Start();
+            MediaTimer.Start();
         }
     }
 }
