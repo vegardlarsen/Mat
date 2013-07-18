@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mat", "Mat\Mat.csproj", "{5EDF3F23-41C9-4B17-BC4F-D9BA5AA5556E}"
 	ProjectSection(ProjectDependencies) = postProject
 		{E8E2FD2E-70E3-4BE0-A8FB-E1AC93E2D291} = {E8E2FD2E-70E3-4BE0-A8FB-E1AC93E2D291}
@@ -21,6 +21,13 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Helpers", "Helpers", "{24E49CE4-3AB9-4BA0-840C-59A627887FA1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mat.Helpers.DropboxConfiguration", "Mat.Helpers.DropboxConfiguration\Mat.Helpers.DropboxConfiguration.csproj", "{221A30E7-E7EA-48D3-9B2A-63A44CB2B0AF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{2BAC2235-93CE-483E-A52E-C06500F69C77}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
