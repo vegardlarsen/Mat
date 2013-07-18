@@ -1,7 +1,5 @@
-﻿using System.Web;
-using System.Web.Optimization;
-using Mat;
-using Mat.Helpers;
+﻿using System.Web.Optimization;
+using BundleTransformer.Core.Transformers;
 
 namespace Mat
 {
@@ -9,9 +7,9 @@ namespace Mat
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
-            Bundle less = new DynamicFolderBundle("css", "Mat.less");
-            less.Transforms.Add(new LessBundle { CompiledFiles = new[] { "Mat.less" } });
-            less.IncludeDirectory("~/Content/", "*.less", true);
+            var less = new Bundle("~/css");
+            less.Transforms.Add(new CssTransformer());
+            less.Include("~/Content/Mat.less");
             BundleTable.Bundles.Add(less);
 
             bundles.Add(new ScriptBundle("~/bundles/js")

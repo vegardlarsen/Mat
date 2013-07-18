@@ -80,7 +80,7 @@ namespace Mat.Sources.Dropbox
             var localPath = LocalPathFromRemotePath(data.Path);
             if (File.Exists(localPath)) return;
             Client.GetFileAsync(data.Path,
-                     delegate(RestResponse response)
+                     delegate(IRestResponse response)
                      {
                          
                          using (var fs = new FileStream(localPath, FileMode.CreateNew, FileAccess.Write))
