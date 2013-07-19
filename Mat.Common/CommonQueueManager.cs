@@ -46,7 +46,10 @@ namespace Mat.Common
                                         .Where(m => !_media.Contains(m, new MediaEqualityComparer()))
                                         .OrderBy(i => (~(i.Ordering() & Seed)) & (i.Ordering() | Seed)));
                 }
-                _position = 0;
+                else
+                {
+                    _position = 0;
+                }
             }
             return Current;
         }
