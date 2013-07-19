@@ -58,6 +58,5 @@ These are ideas on sources I want to add, but haven't gotten around to:
 * **Security** Currently the service is completely open, meaning all images are available to anyone.
 * **Configurability** Configure things like time per image, ordering, and so on.
 * **Remote control** Let you skip an image, pause on an image, and so on.
-* **Updating sources** E.g. things like the Flickr RSS feed above. Should trigger an update when the end of the media list is reached.
 
 [wikipedia]: http://en.wikipedia.org/wiki/Mat_(picture_framing)

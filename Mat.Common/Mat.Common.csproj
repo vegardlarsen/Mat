@@ -45,8 +45,10 @@
   <ItemGroup>
     <Compile Include="AbstractSourceSettings.cs" />
     <Compile Include="CommonQueueManager.cs" />
+    <Compile Include="Extensions\CollectionExtensions.cs" />
     <Compile Include="IMediaSource.cs" />
     <Compile Include="IMediaSourceFactory.cs" />
+    <Compile Include="IUpdatableMediaSource.cs" />
     <Compile Include="MediaEqualityComparer.cs" />
     <Compile Include="MediaExtensions.cs" />
     <Compile Include="IQueueManager.cs" />

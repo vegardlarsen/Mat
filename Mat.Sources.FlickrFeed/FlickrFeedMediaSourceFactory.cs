@@ -12,7 +12,9 @@ namespace Mat.Sources.FlickrFeed
 
         public IMediaSource InstantiateMediaSource(ISourceSettings sourceSettings, string storageDirectory)
         {
-            return new FlickrFeedMediaSource(sourceSettings);
+            var source = new FlickrFeedMediaSource(sourceSettings);
+            source.UpdateAsync().Wait();
+            return source;
         }
 
         public Type SettingsType

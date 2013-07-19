@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Threading.Tasks;
+using Mat.Common.Extensions;
 
 namespace Mat.Common
 {
@@ -35,6 +36,16 @@ namespace Mat.Common
             _position++;
             if (_media.Count <= _position)
             {
+                if (SourceContainer.GetInstance().Sources.OfType<IUpdatableMediaSource>().Any())
+                {
+                    var updatableSources = SourceContainer.GetInstance().Sources.OfType<IUpdatableMediaSource>();
+                    Task.WaitAll(updatableSources.Select(s => s.UpdateAsync()).ToArray(), new TimeSpan(0, 0, 1, 0));
+
+                    _media.AddRange(updatableSources
+                                        .SelectMany(s => s.Media)
+                                        .Where(m => !_media.Contains(m, new MediaEqualityComparer()))
+                                        .OrderBy(i => (~(i.Ordering() & Seed)) & (i.Ordering() | Seed)));
+                }
                 _position = 0;
             }
             return Current;

@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.IO;
+using System.Linq;
 using Mat.Common;
 
 namespace Mat.Sources.Local
 {
-    public class LocalMediaSource : UpdatingMediaSource, ISelfHostedSource
+    public class LocalMediaSource : UpdatingMediaSource, ISelfHostedSource, IDisposable
     {
         private readonly HashSet<String> _extensions = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
                                                   {
@@ -63,6 +63,11 @@ namespace Mat.Sources.Local
             if (!path.StartsWith(_sourceSettings.Path)) throw new UnauthorizedAccessException();
 
             return File.Open(path, FileMode.Open, FileAccess.Read);
+        }
+
+        public void Dispose()
+        {
+            _watcher.Dispose();
         }
     }
 }
