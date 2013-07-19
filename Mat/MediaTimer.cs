@@ -23,7 +23,7 @@ namespace Mat
                                     var hub = GlobalHost.ConnectionManager.GetHubContext<MediaHub>();
                                     // todo: fix, will break:
                                     var manager = QueueManagerFactory.FromClient(String.Empty);
-                                    hub.Clients.newImage(manager.Next());
+                                    hub.Clients.newImage(manager.Next(), false, MediaHub.DisplayTime);
                                 });
         }
     }

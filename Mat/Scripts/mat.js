@@ -8,7 +8,7 @@
     $(function () {
         var container = $('.container'),
             hub = $.connection.mediaHub;
-        hub.newImage = function (image, backwards) {
+        hub.newImage = function (image, backwards, displayTime) {
             $('.status').text('Loading image...');
             container.find('.previous,.next').remove();
             var newImage = $('<img />').attr('src', image.url),
@@ -19,6 +19,10 @@
             // wait until image loads
             newImage.on('load', function () {
                 container.find('.active').toggleClass('active').toggleClass(oldSlideClass);
+                var windowHeight = $(window).height();
+                var imageHeight = newImage.height();
+                newImage.animate({ marginTop: (windowHeight - imageHeight) / 2 }, displayTime, 'linear');
+
                 newSlide.toggleClass('active').toggleClass(newSlideClass);
 
                 if ($('.logoLoader').size() > 0) {
@@ -31,6 +35,7 @@
         };
         $.connection.hub.start(function () {
             $('.status').text('Awaiting instructions...');
+            console.log(hub.displayTime);
 
             $(document).on('keydown', function (e) {
                 switch (e.which) {
