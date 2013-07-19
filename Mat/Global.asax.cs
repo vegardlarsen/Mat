@@ -29,7 +29,6 @@ namespace Mat
             GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new SignalRContractResolver(); ;
             var serializer = new JsonNetSerializer(GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings);
             GlobalHost.DependencyResolver.Register(typeof(IJsonSerializer), () => serializer);
-
             MediaTimer.Start();
         }
     }

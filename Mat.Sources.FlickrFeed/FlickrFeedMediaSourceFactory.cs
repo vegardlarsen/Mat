@@ -7,7 +7,7 @@ namespace Mat.Sources.FlickrFeed
     {
         public string Alias
         {
-            get { return "flickr"; }
+            get { return "flickrFeed"; }
         }
 
         public IMediaSource InstantiateMediaSource(ISourceSettings sourceSettings, string storageDirectory)

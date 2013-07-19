@@ -36,6 +36,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mat.Sources.Flickr", "Mat.Sources.Flickr\Mat.Sources.Flickr.csproj", "{20FD1FDC-0ADB-4588-B8F3-C660DD17CD08}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +119,16 @@ Global
 		{C9432B1F-F44E-4CE7-AC0C-E32C894BC984}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{C9432B1F-F44E-4CE7-AC0C-E32C894BC984}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{C9432B1F-F44E-4CE7-AC0C-E32C894BC984}.Release|x86.ActiveCfg = Release|Any CPU
+		{20FD1FDC-0ADB-4588-B8F3-C660DD17CD08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20FD1FDC-0ADB-4588-B8F3-C660DD17CD08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20FD1FDC-0ADB-4588-B8F3-C660DD17CD08}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{20FD1FDC-0ADB-4588-B8F3-C660DD17CD08}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{20FD1FDC-0ADB-4588-B8F3-C660DD17CD08}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{20FD1FDC-0ADB-4588-B8F3-C660DD17CD08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20FD1FDC-0ADB-4588-B8F3-C660DD17CD08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20FD1FDC-0ADB-4588-B8F3-C660DD17CD08}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{20FD1FDC-0ADB-4588-B8F3-C660DD17CD08}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{20FD1FDC-0ADB-4588-B8F3-C660DD17CD08}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -126,6 +138,7 @@ Global
 		{C5D45EE4-BD6B-4B17-ACCB-1FDBC2D59D86} = {6C043649-8885-4786-BAFA-369D6DF15754}
 		{E8E2FD2E-70E3-4BE0-A8FB-E1AC93E2D291} = {6C043649-8885-4786-BAFA-369D6DF15754}
 		{C9432B1F-F44E-4CE7-AC0C-E32C894BC984} = {6C043649-8885-4786-BAFA-369D6DF15754}
+		{20FD1FDC-0ADB-4588-B8F3-C660DD17CD08} = {6C043649-8885-4786-BAFA-369D6DF15754}
 		{221A30E7-E7EA-48D3-9B2A-63A44CB2B0AF} = {24E49CE4-3AB9-4BA0-840C-59A627887FA1}
 	EndGlobalSection
 EndGlobal
