@@ -20,7 +20,7 @@ Simply build and run Mat (using Visual Studio 2010 or above), and with the defau
 
 ## Configuration
 
-Mat is configured through `Web.config`, under `<mat>`.  It is by default set up to serve images from a local directory (the Sample pictures folder) and a single image from my Flickr account.
+Mat is configured through `Web.config`, under `<mat>`.  It is by default set up to pull images from the [Flickr Best 100 pool](http://www.flickr.com/groups/best100only/pool/).
 
 Mat supports multiple data sources.
 
@@ -42,11 +42,15 @@ The Dropbox source can either run in a Dropbox app folder (which is a separate f
 
 You can also have it get images directly from your Dropbox, or let the images be downloaded locally first.
 
+### Flickr feed
+
+Uses a Flickr feed URL (Atom format is the only we support) to get images. As the feed only contains one set of images (1024 pixels wide), the image quality may not be good enough.
+
 ### Planned sources
 
 These are ideas on sources I want to add, but haven't gotten around to:
 
-* **Flickr** -  Connect directly to a Flickr photostream of any sort.
+* **Flickr API** - Use the Flickr API to get images from a a certain group or user.
 * **Remote** -  Allow a remote computer (running a separate program) to upload images to the server (think of it as a "remote local folder").
 
 ## Other plans
@@ -54,5 +58,6 @@ These are ideas on sources I want to add, but haven't gotten around to:
 * **Security** Currently the service is completely open, meaning all images are available to anyone.
 * **Configurability** Configure things like time per image, ordering, and so on.
 * **Remote control** Let you skip an image, pause on an image, and so on.
+* **Updating sources** E.g. things like the Flickr RSS feed above. Should trigger an update when the end of the media list is reached.
 
 [wikipedia]: http://en.wikipedia.org/wiki/Mat_(picture_framing)

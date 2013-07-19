@@ -53,7 +53,7 @@ namespace Mat.Sources.Local
 
                 if (_sourceSettings == null || _sourceSettings.Path == null) return;
                 
-                _watcher.Path = _sourceSettings.Path;
+               _watcher.Path = _sourceSettings.Path;
                 _watcher.EnableRaisingEvents = true;
             }
         }

@@ -1,9 +1,11 @@
 ﻿using System.Web;
+using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Mat.Common;
 using Mat.Helpers;
+using SignalR;
 
 namespace Mat
 {
@@ -23,6 +25,10 @@ namespace Mat
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new SignalRContractResolver(); ;
+            var serializer = new JsonNetSerializer(GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings);
+            GlobalHost.DependencyResolver.Register(typeof(IJsonSerializer), () => serializer);
 
             MediaTimer.Start();
         }
