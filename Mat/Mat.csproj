@@ -178,6 +178,7 @@
     <Compile Include="MatConfigurationSection.cs" />
     <Compile Include="MatSourceCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SignalRContractResolver.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Libraries\normalize.css" />
