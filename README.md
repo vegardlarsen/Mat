@@ -30,9 +30,28 @@ The local image data source (the `<local />` tag in the configuration) monitors 
 
 If an image is added when the server is already running, it will be picked up and displayed next.
 
+```xml
+<mat>
+  <sources>
+    <local path="C:\Users\Vegard\Pictures" />
+  </sources>
+</mat>
+```
+
 ### Static source
 
 The static source allows you to link directly to individual images on an external server. You can add as many images as you like, but the URLs have to be encoded in the `Web.config` file, and to add more images you have to restart the server.
+
+```xml
+<mat>
+  <sources>
+    <static>
+      <source path="http://example.com/pictureA.jpg" />
+      <source path="http://example.com/pictureB.jpg" />
+    </static>
+  </sources>
+</mat>
+```
 
 ### Dropbox
 
@@ -42,9 +61,35 @@ The Dropbox source can either run in a Dropbox app folder (which is a separate f
 
 You can also have it get images directly from your Dropbox, or let the images be downloaded locally first.
 
+You should probably use the configurator tool to configure this, but the XML syntax is here (default values are used):
+
+```xml
+<mat>
+  <sources>
+    <dropbox 
+       key="foo" 
+       secret="bar" 
+       userToken="baz" 
+       userSecret="quz" 
+       sandbox="true"
+       path="/"
+       recursive="true"
+       local="false" />
+  </sources>
+</mat>
+```
+
 ### Flickr feed
 
 Uses a Flickr feed URL (Atom format is the only we support) to get images. As the feed only contains one set of images (1024 pixels wide), the image quality may not be good enough.
+
+```xml
+<mat>
+  <sources>
+    <flickr href="http://ycpi.api.flickr.com/services/feeds/groups_pool.gne?id=80641914@N00" />
+  </sources>
+</mat>
+```
 
 ### Planned sources
 
