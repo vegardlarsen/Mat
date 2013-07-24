@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using Mat.Sources.Flickr.Favorites;
+using Mat.Sources.Flickr.Photoset;
+using Mat.Sources.Flickr.Photostream;
 
 namespace Mat.Sources.Flickr
 {
@@ -22,7 +25,9 @@ namespace Mat.Sources.Flickr
         {
             var factories = new Dictionary<string, Type>
                 {
-                    { "photostream", typeof(PhotostreamSettings) }
+                    { "photostream", typeof(PhotostreamSettings) },
+                    { "photoset", typeof(PhotosetSettings) },
+                    { "favorites", typeof(FavoritesSettings)}
                 };
             if (factories.ContainsKey(elementName))
             {

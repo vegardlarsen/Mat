@@ -45,14 +45,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Favorites\Favorites.cs" />
+    <Compile Include="Favorites\FavoritesSettings.cs" />
     <Compile Include="FlickrMediaSource.cs" />
     <Compile Include="FlickrMediaSourceFactory.cs" />
     <Compile Include="FlickrMediaSourceSettings.cs" />
+    <Compile Include="FlickrSize.cs" />
     <Compile Include="FlickrSourceCollection.cs" />
     <Compile Include="IFlickrApiSource.cs" />
     <Compile Include="IFlickrApiSourceSettings.cs" />
-    <Compile Include="Photostream.cs" />
-    <Compile Include="PhotostreamSettings.cs" />
+    <Compile Include="FlickrApiSourceBase.cs" />
+    <Compile Include="FlickrSettingsBase.cs" />
+    <Compile Include="Photoset\Photoset.cs" />
+    <Compile Include="Photoset\PhotosetSettings.cs" />
+    <Compile Include="Photostream\Photostream.cs" />
+    <Compile Include="Photostream\PhotostreamSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -62,9 +69,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="FlickrNet.chm" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

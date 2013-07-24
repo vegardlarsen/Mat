@@ -41,10 +41,16 @@ namespace Mat.Common
                     var updatableSources = SourceContainer.GetInstance().Sources.OfType<IUpdatableMediaSource>();
                     Task.WaitAll(updatableSources.Select(s => s.UpdateAsync()).ToArray(), new TimeSpan(0, 0, 1, 0));
 
-                    _media.AddRange(updatableSources
-                                        .SelectMany(s => s.Media)
-                                        .Where(m => !_media.Contains(m, new MediaEqualityComparer()))
-                                        .OrderBy(i => (~(i.Ordering() & Seed)) & (i.Ordering() | Seed)));
+                    var newMedia = updatableSources
+                        .SelectMany(s => s.Media)
+                        .Where(m => !_media.Contains(m, new MediaEqualityComparer()))
+                        .OrderBy(i => (~(i.Ordering() & Seed)) & (i.Ordering() | Seed));
+                    
+                    _media.AddRange(newMedia);
+                    if (!newMedia.Any())
+                    {
+                        _position = 0;
+                    }
                 }
                 else
                 {

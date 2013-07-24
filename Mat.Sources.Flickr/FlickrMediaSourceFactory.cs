@@ -9,8 +9,7 @@ namespace Mat.Sources.Flickr
         public IMediaSource InstantiateMediaSource(ISourceSettings sourceSettings, string storageDirectory)
         {
             var flickr = new FlickrMediaSource((FlickrMediaSourceSettings) sourceSettings);
-            var task = flickr.UpdateAsync();
-            task.Wait();
+            flickr.UpdateAsync().Wait();
             return flickr;
         }
 

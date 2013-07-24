@@ -2,6 +2,6 @@
 {
     public interface IFlickrApiSourceSettings
     {
-        
+        FlickrSize PreferredSize { get; set; }
     }
 }
